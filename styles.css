@@ -46,8 +46,9 @@ main {
 
 .nav {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   gap: 3.5rem;
+
   margin-top: 3.9rem;
   margin-left: 3.9rem;
   z-index: 1;
@@ -57,6 +58,7 @@ main {
 .nav__hamburger--mobile,
 .nav__close--mobile {
   display: none;
+  cursor: pointer;
 }
 
 .nav__list {
@@ -69,33 +71,48 @@ main {
 .nav__list a {
   color: white;
   text-decoration: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.nav__list a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -0.5rem;
+  height: 3px;
+  width: 70%;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.nav__list a:hover::after {
+  transform: translateX(-50%) scaleX(1);
 }
 
 .carousel {
   overflow: hidden;
-  position: relative;
+  /* position: relative; */
   z-index: 0;
 }
 
 .carousel__slides {
   display: flex;
-
-  /* width: 300%; */
   transition: transform 0.5s ease-in-out;
+  width: 100%;
 }
 
 .carousel__slide {
   flex: 0 0 100%;
-  /* flex-direction: row;
-  display: flex; */
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 60% 40%;
+  transition: transform 0.5s ease-in-out;
 }
 
-.carousel__image img {
-  /* max-width: 840px;
-  max-height: 534px; */
+.carousel__image-main {
   min-height: 100%;
   height: 100%;
   width: 100%;
@@ -112,7 +129,6 @@ main {
   flex-direction: column;
   justify-content: center;
   flex-shrink: 0;
-  /* min-width: 388px; */
   width: 100%;
   height: 100%;
 }
@@ -141,6 +157,7 @@ main {
   letter-spacing: 11px;
   font-size: 0.9rem;
   margin-bottom: 3rem;
+  cursor: pointer;
 }
 
 .carousel__button::after {
@@ -148,17 +165,29 @@ main {
   margin-left: 1rem;
 }
 
+.carousel__button:hover {
+  color: var(--Dark-Gray);
+}
+
 .carousel__controls {
   position: absolute;
-  bottom: 0;
-  background-color: black;
-  left: 0;
   width: 160px;
   height: 80px;
+  background-color: black;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-inline: 1.5rem;
+  cursor: pointer;
+}
+
+.carousel__controls--desktop {
+  bottom: 0;
+  left: 0;
+}
+
+.carousel__controls--mobile {
+  display: none;
 }
 
 .about {
@@ -186,19 +215,128 @@ main {
   margin-top: 1rem;
 }
 
-@media screen and (max-width: 995px) {
+/* Active states */
+
+@media screen and (max-width: 1281px) {
+  body {
+    background-color: white;
+  }
+
+  main {
+    max-width: 700px;
+    margin-bottom: 1rem;
+    height: 100%;
+  }
+
+  .nav {
+    width: 100%;
+    height: 100%;
+    height: 110px;
+    margin: 0;
+  }
+
+  .nav__logo-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 7rem;
+    margin-left: 1.5rem;
+  }
+
+  .nav__hamburger--mobile {
+    display: block;
+  }
+
+  .nav__list-container {
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    gap: 3rem;
+    background-color: white;
+  }
+
+  .nav__list a {
+    color: black;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .nav__list a::after {
+    background-color: black;
+  }
+
+  .nav__list a:hover::after {
+    transform: translateX(-50%) scaleX(1);
+  }
+
+  .nav__close--mobile {
+    display: block;
+  }
+
+  .nav__logo {
+    height: auto;
+    max-height: 14px;
+    width: auto;
+  }
+
   .carousel__slide {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 60% 40%;
+    grid-template-rows: 50% 50%;
+  }
+
+  .carousel__image {
+    min-height: 360px;
+    height: 100%;
+    position: relative;
+    /* overflow: visible; */
+  }
+
+  .carousel__controls--mobile {
+    display: flex;
+    bottom: 0;
+    right: 0;
   }
 
   .about {
     flex-direction: column;
   }
 
-  .carousel__controls {
-    top: -5rem;
-    left: -10.2rem;
+  .carousel__content {
+    padding-inline: 2rem;
+    height: 100%;
+  }
+
+  .carousel__controls--desktop {
+    display: none;
+  }
+
+  .carousel__title {
+    font-size: 2.5rem;
+    margin-top: 3.7rem;
+  }
+
+  .carousel__paragraph {
+    letter-spacing: -0.33px;
+    margin-bottom: 2.5rem;
+  }
+
+  .about__text {
+    padding-inline: 2rem;
+  }
+
+  .about__title {
+    font-size: 0.8rem;
+  }
+
+  .about__description {
+    padding-right: 0.3rem;
   }
 }

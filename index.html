@@ -34,23 +34,28 @@
     <main>
       <header class="header">
         <nav class="nav">
-          <img class="nav__logo" src="./images/logo.svg" alt="room logo" />
-          <img
-            class="nav__hamburger nav__hamburger--mobile"
-            src="./images/icon-hamburger.svg"
-            alt="hamburger icon"
-          />
-          <img
-            class="nav__close nav__close--mobile"
-            src="./images/icon-close.svg"
-            alt="close icon"
-          />
-          <ul class="nav__list">
-            <li class="nav__item"><a href="#">Home</a></li>
-            <li class="nav__item"><a href="#">Shop</a></li>
-            <li class="nav__item"><a href="#">About</a></li>
-            <li class="nav__item"><a href="#">Contact</a></li>
-          </ul>
+          <div class="nav__list-container">
+            <img
+              class="nav__close nav__close--mobile"
+              src="./images/icon-close.svg"
+              alt="close icon"
+            />
+            <ul class="nav__list">
+              <li class="nav__item"><a href="#">Home</a></li>
+              <li class="nav__item"><a href="#">Shop</a></li>
+              <li class="nav__item"><a href="#">About</a></li>
+              <li class="nav__item"><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          <div class="nav__logo-container">
+            <img
+              class="nav__hamburger nav__hamburger--mobile"
+              src="./images/icon-hamburger.svg"
+              alt="hamburger icon"
+            />
+
+            <img class="nav__logo" src="./images/logo.svg" alt="room logo" />
+          </div>
         </nav>
       </header>
       <section class="carousel">
@@ -60,12 +65,25 @@
               <source
                 srcset="./images/desktop-image-hero-1.jpg"
                 media="
-              (min-width:1120px)"
+              (min-width:1281px)"
               />
               <img
+                class="carousel__image-main"
                 src="./images/mobile-image-hero-1.jpg"
                 alt="sleek modern chair"
               />
+              <div class="carousel__controls carousel__controls--mobile">
+                <img
+                  class="carousel__btn carousel__btn--prev"
+                  src="./images/icon-angle-left.svg"
+                  alt="left arrow"
+                />
+                <img
+                  class="carousel__btn carousel__btn--right"
+                  src="./images/icon-angle-right.svg"
+                  alt="right arrow"
+                />
+              </div>
             </picture>
             <div class="carousel__content">
               <h2 class="carousel__title">
@@ -79,7 +97,7 @@
                 and what you love.
               </p>
               <a href="#" class="carousel__button">Shop now</a>
-              <div class="carousel__controls">
+              <div class="carousel__controls carousel__controls--desktop">
                 <img
                   class="carousel__btn carousel__btn--prev"
                   src="./images/icon-angle-left.svg"
@@ -102,9 +120,22 @@
               (min-width:1120px)"
               />
               <img
+                class="carousel__image-main"
                 src="./images/mobile-image-hero-2.jpg"
                 alt="sleek modern chair"
               />
+              <div class="carousel__controls carousel__controls--mobile">
+                <img
+                  class="carousel__btn carousel__btn--prev"
+                  src="./images/icon-angle-left.svg"
+                  alt="left arrow"
+                />
+                <img
+                  class="carousel__btn carousel__btn--right"
+                  src="./images/icon-angle-right.svg"
+                  alt="right arrow"
+                />
+              </div>
             </picture>
             <div class="carousel__content">
               <h2 class="carousel__title">
@@ -118,7 +149,7 @@
                 hesitate to contact us today.
               </p>
               <a href="#" class="carousel__button">Shop now</a>
-              <div class="carousel__controls">
+              <div class="carousel__controls carousel__controls--desktop">
                 <img
                   class="carousel__btn carousel__btn--prev"
                   src="./images/icon-angle-left.svg"
@@ -141,9 +172,22 @@
               (min-width:1120px)"
               />
               <img
+                class="carousel__image-main"
                 src="./images/mobile-image-hero-3.jpg"
                 alt="sleek modern chair"
               />
+              <div class="carousel__controls carousel__controls--mobile">
+                <img
+                  class="carousel__btn carousel__btn--prev"
+                  src="./images/icon-angle-left.svg"
+                  alt="left arrow"
+                />
+                <img
+                  class="carousel__btn carousel__btn--right"
+                  src="./images/icon-angle-right.svg"
+                  alt="right arrow"
+                />
+              </div>
             </picture>
             <div class="carousel__content">
               <h2 class="carousel__title">
@@ -157,7 +201,7 @@
                 customers want for their home and office.
               </p>
               <a href="#" class="carousel__button">Shop now</a>
-              <div class="carousel__controls">
+              <div class="carousel__controls carousel__controls--desktop">
                 <img
                   class="carousel__btn carousel__btn--prev"
                   src="./images/icon-angle-left.svg"
